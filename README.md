@@ -42,7 +42,7 @@ The plot of graphs was made using the matplotlib.pyplot library.
 
 ![111](https://user-images.githubusercontent.com/61979226/136682206-4ec8a38e-9a6a-481a-a4a2-493eb357bc29.png)
 
-        •While the training loss decreased, the validation loss continued to decrease by experiencing increases in some places and the                       difference increased.
+        •While the training loss decreased, the validation loss continued to decrease by experiencing increases in some places and the difference increased.
 
 # Dropout
 
@@ -54,7 +54,7 @@ The network has been retrained. A 30 epoch training took place. And val_acc is c
 
 ![333](https://user-images.githubusercontent.com/61979226/136682382-c6f3b43d-5ec0-49c1-9d11-df168c503655.png)
 
-        •Both training accuracy and validation accuracy increase, although training accuracy encounters local minimums and maximums, the success of the over    network increases with dropout.
+        •Both training accuracy and validation accuracy increase, although training accuracy encounters local minimums and maximums, the success of the over network increases with dropout.
 
 ![444](https://user-images.githubusercontent.com/61979226/136682415-9d63d355-bc65-4352-8aee-74b704bcf6b2.png)
 
