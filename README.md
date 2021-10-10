@@ -34,8 +34,53 @@ I set shuffle to TRUE.
 calculated.
 The plot of graphs was made using the matplotlib.pyplot library.
 
+![222](https://user-images.githubusercontent.com/61979226/136682175-d30863e2-7bc9-46b5-9dca-ef504677f30f.png)
+
+        •Training accuracy increased while validation accuracy decreased in some areas.    
+        •Validation accuracy encountered but circumvented local minimums.
 
 
+![111](https://user-images.githubusercontent.com/61979226/136682206-4ec8a38e-9a6a-481a-a4a2-493eb357bc29.png)
+
+        •While the training loss decreased, the validation loss continued to decrease by experiencing increases in some places and the                                      difference increased.
+
+# Dropout
+
+Dropout aims to increase the success level of the network by making random cuts between neurons.
+On the side is the network structure used by dropouts. 3 dropouts were used in the network.
+The first and second dropouts are in the convolution layer and the third dropout is in the dense layer.
+
+The network has been retrained. A 30 epoch training took place. And val_acc is calculated as: 0.7683.
+
+![333](https://user-images.githubusercontent.com/61979226/136682382-c6f3b43d-5ec0-49c1-9d11-df168c503655.png)
+
+        •Both training accuracy and validation accuracy increase, although training accuracy encounters local minimums and maximums, the success of the over                network increases with dropout.
+
+![444](https://user-images.githubusercontent.com/61979226/136682415-9d63d355-bc65-4352-8aee-74b704bcf6b2.png)
+
+        •Training loss and accuracy loss decrease proportionally.
+
+# DATA AUGMENTİON
+
+Image data augmentation is a technique that can be used to artificially expand the size of a training dataset by creating modified versions of images in the dataset.
+
+Rotation_range and width_shift_range are used in this project.
+After creating the model and running fit, datagen.fit(X) connects X (train images) to datagen, that is, it performs the operations given as parameters.
+Flow takes data and label arrays, and I gave batch_size and ran model.fit_generator.
+
+30. Epoch training was held. And it is calculated as val_acc:7883.
+
+ *rotation_range images are for doing random rotations.
+ *width_shift_range implements image scrolling.
+ 
+ 
+![555](https://user-images.githubusercontent.com/61979226/136682724-a024586f-2098-4804-a141-a69965064bcf.png)
+
+        •Validation accuracy has stutters while training accuracy is less bugged. Many local minimums are observed and the network succeeds.
+
+![666](https://user-images.githubusercontent.com/61979226/136682727-d2e35333-132f-4b64-95b8-54b70875854e.png)
+
+        •Validation accuracy stalls down while training accuracy drops more. Validation accuracy continues to decrease without stuttering, although it increases            occasionally
 
 
 
