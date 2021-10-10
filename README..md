@@ -1,38 +1,68 @@
 # Keras-Cifar100
 
-First, I downloaded the dataset with the load_data method, and inserted the necessary variables. Train and test
-I created the folders. I created the folders of the classes I need in the ifs and I have 6 folders.
+İlk olarak load_data metodu ile veri setini indirdim, gerekli değişkenlerin içerlerine attım. Train ve test 
+klasörümü oluşturdum. if ler içerisinde ihtiyacım olan sınıfların klasörlerini oluşturdum 6 adet 
+klasörüm olmuş oldu.
 
-I saved the necessary .pngs with the label control to the folders in the Train folder.
+Gerekli .png'leri label kontrolü ile Train klasöründeki klasörlere kaydettim.
 
-I saved the necessary .pngs with the label control to the folders in the Train folder.
+Gerekli .png'leri label kontrolü ile Train klasöründeki klasörlere kaydettim.
 
-After these processes, there are 500 images in each file in the Train folder and 100 images in the files in my Test folder are ready.
-I entered each folder separately and added the number of all the pictures in that folder.
+Bu işlemlerden sonra Train klasörünün içerisindeki her bir dosyada 500 adet görüntü Test klasörümün içerisindeki dosyalarda 100 adet görüntü hazır olarak bulunmakta.
+Her klasöre ayrı ayrı girerek o klasörde bulunan bütün resimlerin başına sayısını ekledim. 
 
-For example, I added 1 to the beginning of all the image names in the tulip folder, 2 to the beginning of the names of the images in the sea folder, and so on. I wrote the label_img function to express which object each of the images is.
+Örneğin tulip klasöründeki bütün resim adlarının başına 1 ekledim, sea klasöründeki resimlerinin adlarını başına 2 vb. Resimlerin her birinin hangi nesne olduğunu ifade edebilmek için label_img fonksiyonunu yazdım.
 
-The label_img function looks at the first character in the name of the image sent as a parameter and sees the numbers I have added.
-It performs the necessary return operation, so I have allocated which picture belongs to which class.
+Bu fonksiyonda parametre olarak gönderilen resmin adında ilk objeye bakar ve eklediğim sayıları görmüş olur.
+Gerekli return işlemini gerçekleştirir böylelikle hangi resim hangi sınıfa ait ayırmış oluyorum.
 
 # MODEL
 
-    • 5 convolutions
-    • I created it using 3 dense layers.
-I chose relu as activation function, but softmax as activation function in last layer
-I chose.
-Since I have 6 image classes, the output of the last dense layer is determined as 6.
+        • 5 konvolüsyon 
+        • 3 dense katmanı kullanarak oluşturdum.
+Aktivasyon fonksiyonu olarak relu seçtim, ancak son katmanda aktivasyon fonksiyonu olarak softmax 
+seçtim.
+6 adet resim sınıfım olduğu için son dense katmanın çıkışı 6 olarak belirlend
 
-After creating the model, the data in the arrays containing my training and test data should be separated as images and labels. This was done with the help of the Numpy library.
+Model oluşturduktan sonra eğitim ve test verilerimin bulunduğu dizilerdeki verileri görüntü ve label 
+olarak ayrılması gerekir bu işlem için Numpy kütüphanesi yardımı ile gerçekleştirdim.
 
-Then I used the fit function to start the training. X with my Train images
-I gave the variable Y array where my Train labels are.
-I have given my test data as validation as stated in the document. I set it to batch_size and
-I set shuffle to TRUE.
+Ardından eğitimi başlatmak için fit fonksiyonunu kullandım. Train görüntülerimin bulunduğu X değişkeni, Train labellarımın bulunduğu Y dizisini verdim. 
+Validation olarak test verilerimi verdim. Batch_size olarak belirledim ve shuffle’ı TRUE olarak belirledim.
 
-30 epoch training was carried out on the network. And as val_acc: 0.7767
-calculated.
-The plot of graphs was made using the matplotlib.pyplot library.
+30. Epoch bir eğitim gerçekleşti. Ve val_acc: 0.7767 olarak hesaplandı.
+Grafiklerin çizimi için matplotlip.pyplot kod bloğu kullanıldı.
+
+![99](https://user-images.githubusercontent.com/61979226/136683001-cc14db46-b6d3-4b62-8be2-6622c11c51d5.png)
+
+
+# DROPOUT
+
+Dropout nöronlar arasında rastgele kesme işlemleri yaparak ağın başarı düzeyini artırmayı hedeflemektedir.
+Yan tarafta dropoutların kullandığı ağ yapısı bulunmakta. Ağda 3 adet dropout kullanıldı.
+Birinci ve ikinci dropout Konvolüsyon katmanında üçüncü dropout dense katmanında kullanıldı.
+
+30. Epoch bir eğitim gerçekleşti. Ve val_acc: 0.7683 olarak hesaplanır.
+
+
+![88](https://user-images.githubusercontent.com/61979226/136683032-370f61a9-2b55-4852-a9d0-4c61c97f070d.png)
+
+# DATA AUGMENTİON
+
+Veri zenginleştirme işleminin bir çok yöntemi bulunmaktadır örneğin , çevirme, yan yatırma, görüntülerin boyutları ile oynama, zoom yapma, renkleri ile oynama gibi işlemler yaparak veri çeşitliliğini artırarak modeli daha başarılı bir hale getirmeyi hedefler.
+Bu projede rotation_range ve width_shift_range kullanıldı.
+Model oluşturulup fit çalıştırdıktan sonra datagen.fit(X) X (train görüntülerini) datagen’e bağlar yani parametre olarak verilen işlemleri yapar.
+Flow veri ve etiket dizileri alır bir de batch_size i verdim ve model.fit_generator çalıştırdım.
+
+30. Epoch bir eğitim gerçekleşti. Ve val_acc:7883 olarak hesaplanır.
+
+        *rotation_range resimleri rastgele rotasyonlar yapmak içindir. 
+        *width_shift_range resmi kaydırma işlemi uygulamaktadır.
+
+![77](https://user-images.githubusercontent.com/61979226/136683077-1f2a438f-2cd3-4553-aea8-8961cb605b7f.png)
+
+
+
 
 
 
